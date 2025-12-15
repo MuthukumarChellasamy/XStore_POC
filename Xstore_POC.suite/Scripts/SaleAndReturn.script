@@ -7,11 +7,9 @@ TypeText "C:\Program Files\RealVNC\VNC Viewer\vncviewer.exe", returnkey
 WaitFor 10, text:"KFL Store 1646555"
 DoubleClick text:"KFL Store 1646555"
 
-if Exists((Text:"No orders require attention"), 10) then
-	Click (Text:"No orders require attention")
-end if
+WaitFor 10,text:"Orders"
 
-//WaitFor 10,text:"No orders require attention"
+//WaitFor 10,text:"orders require attention"
 //WaitFor 10, text:"Scan or key your employee"
 Click text:"Scan or key your employee", hotspot :[10,-20]
 wait 1
