@@ -24,7 +24,7 @@ jobs:
       - name: Eggplant Runner
         uses: keysight-eggplant/eggplant-github-action@v1.0.18
         with:
-          serverURL: "http://mlwmtsuatapp01.corp.footlocker.net:8000/"
-          testConfigID: "39189d21-256a-4b87-8d87-271adb717072"
-          clientID: "client:dai:api:integration:16234e5b-58c4-49e0-b86b-fa671e42d9cd"
-          clientSecret: "TeVc4x5N0XsCOuIOQ85arv4hmwYFnX3v"
+          serverURL: "http://ordmtsuatapp10:8000"
+          testConfigID: "cb5e52b6-7671-4f6e-a73e-8bb4963410cb"
+          clientID: "client:dai:api:integration:5a664934-b5bf-4c8d-b58f-d17e7d38146a"
+          clientSecret: "qw22ZujgIpcqCubfT5VIe25IQBRen3nd"
