@@ -167,12 +167,12 @@ Split RefundAmount by "$"
 Log item 2 of RefundAmount
 delete last 2 characters of item 2 of RefundAmount
 Click text:"Refund" , hotspot:[165,1]
-WaitFor 5,text:"Return Tender Options"
+WaitFor 15,text:"Return Tender Options"
 Click "Return Cash Img"
-WaitFor 5,text:"Tender"
+WaitFor 10,text:"Tender"
 TypeText item 2 of RefundAmount, returnKey
 wait 2
-WaitFor 5,text:"Email Address"
+WaitFor 10,text:"Email Address"
 CaptureScreen {Name:"EmailAddress Popup"}
 Click "Return PrintOnly Img"
 Log "Return Process initiated"
