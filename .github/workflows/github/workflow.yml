@@ -1,0 +1,30 @@
+name: "XStore_POC"
+ 
+on:
+  push:                     # <-- Must be indented under 'on'
+    branches:
+      - main
+  pull_request:             # <-- Also properly indented under "on"
+    branches:
+      - main
+ 
+jobs:
+  Run-DAI-Test-Configuration:
+    strategy:               # Optional configuration using matrix strategy
+      max-parallel: 1       # To limit number of parallel jobs
+      matrix:
+        os: [windows-latest]  # Supported OS for Eggplant DAI Action
+ 
+    runs-on: Self-hosted   # Selects OS dynamically from matrix
+    name: Run Test Configuration
+ 
+    steps:
+      - run: echo "Trigger event.. ${{ github.event_name }}. Runner OS.. ${{ runner.os }}."
+ 
+      - name: Eggplant Runner
+        uses: keysight-eggplant/eggplant-github-action@v1.0.18
+        with:
+          serverURL: "http://mlwmtsuatapp01.corp.footlocker.net:8000/"
+          testConfigID: "39189d21-256a-4b87-8d87-271adb717072"
+          clientID: "client:dai:api:integration:16234e5b-58c4-49e0-b86b-fa671e42d9cd"
+          clientSecret: "TeVc4x5N0XsCOuIOQ85arv4hmwYFnX3v"
