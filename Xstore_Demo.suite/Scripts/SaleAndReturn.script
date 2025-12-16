@@ -177,7 +177,7 @@ CaptureScreen {Name:"EmailAddress Popup"}
 Click "Return PrintOnly Img"
 Log "Return Process initiated"
 WaitFor 10,text:"Sales Associate"
-if ImageFound(text:"Sales Associate",waitfor :5) then
+if ImageFound(text:"Sales Associate",waitfor :10) then
 	click "SalesAssociate BackBtn Img"
 	LogSuccess "Click Back Button"
 else
