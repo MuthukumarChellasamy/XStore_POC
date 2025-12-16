@@ -7,6 +7,11 @@ TypeText "C:\Program Files\RealVNC\VNC Viewer\vncviewer.exe", returnkey
 WaitFor 10, text:"KFL Store 1646555"
 DoubleClick text:"KFL Store 1646555"
 
+if ImageFound(text:"Logout",waitfor:10)
+	Click FoundImageLocation()
+	Log "User logged out"
+end if
+
 WaitFor 10,text:"Orders"
 
 //WaitFor 10,text:"orders require attention"
