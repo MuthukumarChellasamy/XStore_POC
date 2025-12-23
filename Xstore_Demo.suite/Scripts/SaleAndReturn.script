@@ -1,4 +1,4 @@
-﻿wait 2
+wait 2
 TypeText windowsKey,r
 WaitFor 25, text:"Type the name"
 TypeText "C:\Program Files\RealVNC\VNC Viewer\vncviewer.exe", returnkey
@@ -63,7 +63,7 @@ wait 5
 if ImageFound(text:"Sales Associate", waitfor:10)
 	LogSuccess "Sale is successful"
 else
-	LogError "Sale is unsuccessful"
+LogError "Sale is unsuccessful"
 end if
 WaitFor 10,text:"Sales Associate"
 CaptureScreen {Name: "Sale Associate Page"}  
@@ -97,12 +97,23 @@ Click "TransactionProcess Img"
 Waitfor 5,text:"Electronic Journal"
 Log "Fetching Ticket ID"
 CaptureScreen {Name: "Electric journal ticket ID"}
-Put ImageRectangle(text:"Status Complete").topleft into TL
+
+(*Put ImageRectangle(text:"Status Complete").topleft into TL
 Put TL + [60,-30] into BR
 Put ReadText(TL,BR) into TicketId
 split TicketId by space
-Put item  2 of TicketId into TicketId
+Put item  2 of TicketId into TicketId*)
+Click {text:"Status Complete"}
+Set the SearchRectangle to [643,179,1277,883]
+WaitFor 10,text:"Gift Receipt"
+DoubleClick text:"Ticket",Hotspot:[40,0]
+TypeText controlKey,"c"
+Put RemoteClipboard() into TicketId
+Log TicketId
+Set the SearchRectangle to empty
 Log "Got the Ticket ID"
+Click text:"Cashier ID"
+wait 2
 Click "ElectronicJournal Back Img"
 WaitFor 10,text:"Transaction Search"
 Click "ElectronicJournal BackButton Img"
@@ -177,7 +188,7 @@ CaptureScreen {Name:"EmailAddress Popup"}
 Click "Return PrintOnly Img"
 Log "Return Process initiated"
 WaitFor 10,text:"Sales Associate"
-if ImageFound(text:"Sales Associate",waitfor :10) then
+if ImageFound(text:"Sales Associate",waitfor :5) then
 	click "SalesAssociate BackBtn Img"
 	LogSuccess "Click Back Button"
 else
